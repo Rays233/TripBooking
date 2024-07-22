@@ -7,22 +7,52 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TripBooking.DAL;
 using TripBooking.Models;
+using TripBooking.Services;
 
 namespace TripBooking.Controllers
 {
     public class HotelsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IHotelService _hotelService;
+        private readonly IRoomService _roomService;
 
-        public HotelsController(AppDbContext context)
+        public HotelsController(AppDbContext context,IHotelService hotelService, IRoomService roomService)
         {
             _context = context;
+            _hotelService = hotelService;
+            _roomService = roomService;
+        }
+        public IActionResult Details(int id, DateTime checkIn, DateTime checkOut)
+        {
+            var hotel = _hotelService.GetHotelById(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            var availableRooms = _roomService.GetAvailableRooms(id, checkIn, checkOut);
+
+            var viewModel = new HotelInfoViewModel
+            {
+                Hotel = hotel,
+                AvailableRooms = availableRooms,
+                CheckIn = checkIn,
+                CheckOut = checkOut
+            };
+
+            return View(viewModel);
         }
 
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Hotels.ToListAsync());
+            var hotels = await _hotelService.GetAllHotelsAsync();
+            if (hotels == null)
+            {
+                return NotFound();
+            }
+            return View(hotels);
         }
 
         // GET: Hotels/Details/5
@@ -153,5 +183,27 @@ namespace TripBooking.Controllers
         {
             return _context.Hotels.Any(e => e.HotelId == id);
         }
+
+        public IActionResult HotelInfo(int id, DateTime checkIn, DateTime checkOut)
+        {
+            var hotel = _hotelService.GetHotelById(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            var availableRooms = _roomService.GetAvailableRooms(id, checkIn, checkOut);
+
+            var viewModel = new HotelInfoViewModel
+            {
+                Hotel = hotel,
+                AvailableRooms = availableRooms,
+                CheckIn = checkIn,
+                CheckOut = checkOut
+            };
+
+            return View(viewModel);
+        }
+
     }
 }

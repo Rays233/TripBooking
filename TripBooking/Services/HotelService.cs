@@ -1,12 +1,16 @@
 ﻿using TripBooking.Services;
 using TripBooking.Models;
 using TripBooking.DAL;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TripBooking.Services
 {
     public interface IHotelService
     {
         List<Hotel> SearchAvailableHotels(string location, DateTime checkIn, DateTime checkOut);
+        Hotel GetHotelById(int id);
+        Task<List<Hotel>> GetAllHotelsAsync();
     }
 
     public class HotelService : IHotelService
@@ -14,8 +18,13 @@ namespace TripBooking.Services
         private readonly AppDbContext _context;
 
         public HotelService(AppDbContext context)
-        {
+        {   
             _context = context;
+        }
+        public Hotel GetHotelById(int id)
+        {
+                
+            return _context.Hotels.FirstOrDefault(h => h.HotelId == id);
         }
 
         public List<Hotel> SearchAvailableHotels(string searchTerm, DateTime checkIn, DateTime checkOut)
@@ -27,7 +36,7 @@ namespace TripBooking.Services
             .Distinct()
             .ToList();
 
-            // G    et all hotel IDs that have available rooms
+            // Get all hotel IDs that have available rooms
             var availableHotelIds = _context.Rooms
                 .Where(r => !bookedRoomIds.Contains(r.RoomId))
                 .Select(r => r.HotelId)
@@ -38,5 +47,11 @@ namespace TripBooking.Services
                                 availableHotelIds.Contains(h.HotelId))
                 .ToList();
         }
+        public async Task<List<Hotel>> GetAllHotelsAsync()
+        {
+            return await _context.Hotels.ToListAsync();
+        }
+
+        
     }
 }

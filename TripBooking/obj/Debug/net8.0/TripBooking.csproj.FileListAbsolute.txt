@@ -260,3 +260,4 @@ C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\Microsoft.E
 C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Mason\source\repos\TripBooking\TripBooking\obj\Debug\net8.0\TripBooking.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Mason\source\repos\TripBooking\TripBooking\obj\Debug\net8.0\TripBooking.sourcelink.json
