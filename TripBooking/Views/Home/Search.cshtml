@@ -1,0 +1,35 @@
+﻿@model List<Hotel>
+
+<h2 class="mb-4">Available Hotels</h2>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@hotel.Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@hotel.City, @hotel.Country</h6>
+                        <p class="card-text">
+                            <!-- Additional hotel parameters to be added here -->
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                        <a asp-action="HotelDetails" asp-route-id="@hotel.HotelId" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        No hotels found matching your criteria. Please try different search parameters.
+    </div>
+}
+
+<div class="mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Back to Search</a>
+</div>
