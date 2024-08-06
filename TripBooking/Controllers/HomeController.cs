@@ -8,12 +8,10 @@ namespace TripBooking.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IHotelService _hotelService;
 
         public HomeController(ILogger<HomeController> logger, IHotelService hotelService)
         {
-            _logger = logger;
             _hotelService = hotelService;
         }
 
@@ -37,7 +35,9 @@ namespace TripBooking.Controllers
             }
 
             var availableHotels = _hotelService.SearchAvailableHotels(location, checkIn, checkOut);
-            return View(availableHotels);
+            TempData["CheckIn"] = checkIn;
+            TempData["CheckOut"] = checkOut;
+            return View("SearchResults", availableHotels);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

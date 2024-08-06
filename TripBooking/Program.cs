@@ -9,15 +9,20 @@ using TripBooking.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IHotelService, HotelService>(); // Register HotelService as a scoped service to provide a new instance per client request.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddScoped<IHotelService, HotelService>(); // Register HotelService as a scoped service to provide a new instance per client request.
+builder.Services.AddScoped<IRoomService, RoomService>();
+builder.Services.AddScoped<IBookingService, BookingService>(); // Register IBookingService
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddScoped<IRoomService, RoomService>();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 

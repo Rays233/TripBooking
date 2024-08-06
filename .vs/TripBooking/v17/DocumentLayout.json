@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Mason\\source\\repos\\TripBooking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\views\\hotels\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\views\\hotels\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\controllers\\hotelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\controllers\\hotelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\services\\hotelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,58 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "TripBooking\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "TripBooking\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T22:05:52.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Search.cshtml",
-              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Views\\Home\\Search.cshtml",
-              "RelativeDocumentMoniker": "TripBooking\\Views\\Home\\Search.cshtml",
-              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Views\\Home\\Search.cshtml",
-              "RelativeToolTip": "TripBooking\\Views\\Home\\Search.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAACIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-22T22:01:44.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "HotelService.cs",
-              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
-              "RelativeDocumentMoniker": "TripBooking\\Services\\HotelService.cs",
-              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
-              "RelativeToolTip": "TripBooking\\Services\\HotelService.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAiwA0AAAAFAAAA",
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Models\\Customer.cs",
+              "RelativeToolTip": "TripBooking\\Models\\Customer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T21:19:38.234Z",
+              "WhenOpened": "2024-08-06T21:09:07.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\DAL\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "TripBooking\\DAL\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\DAL\\AppDbContext.cs",
+              "RelativeToolTip": "TripBooking\\DAL\\AppDbContext.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T21:06:45.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Program.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Program.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Program.cs",
+              "RelativeToolTip": "TripBooking\\Program.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T20:59:31.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TripBooking\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAkwCgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T20:51:29.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Models\\Booking.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Models\\Booking.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Models\\Booking.cs",
+              "RelativeToolTip": "TripBooking\\Models\\Booking.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAA5wBIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T20:48:37.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "HotelsController.cs",
               "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HotelsController.cs",
               "RelativeDocumentMoniker": "TripBooking\\Controllers\\HotelsController.cs",
               "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HotelsController.cs",
               "RelativeToolTip": "TripBooking\\Controllers\\HotelsController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAYwCMAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T21:13:15.337Z",
+              "WhenOpened": "2024-08-06T19:36:38.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Services\\BookingService.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\BookingService.cs",
+              "RelativeToolTip": "TripBooking\\Services\\BookingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T18:52:27.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "TripBooking\\Controllers\\BookingController.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T18:48:48.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Views\\Hotels\\Details.cshtml",
+              "RelativeDocumentMoniker": "TripBooking\\Views\\Hotels\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Views\\Hotels\\Details.cshtml",
+              "RelativeToolTip": "TripBooking\\Views\\Hotels\\Details.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-06T18:19:04.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HotelService.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Services\\HotelService.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
+              "RelativeToolTip": "TripBooking\\Services\\HotelService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T18:15:40.222Z",
               "EditorCaption": ""
             }
           ]

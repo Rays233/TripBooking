@@ -12,7 +12,7 @@ using TripBooking.DAL;
 namespace TripBooking.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240717144943_InitialCreate")]
+    [Migration("20240724195309_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -63,14 +63,18 @@ namespace TripBooking.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("TripBooking.Models.Hotel", b =>
@@ -82,17 +86,44 @@ namespace TripBooking.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HotelId"));
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("HotelId");
 
                     b.ToTable("Hotels");
+
+                    b.HasData(
+                        new
+                        {
+                            HotelId = 1,
+                            City = "Alicante",
+                            Country = "Spain",
+                            Description = "Description for Hotel One",
+                            Name = "Hotel One"
+                        },
+                        new
+                        {
+                            HotelId = 2,
+                            City = "Malaga",
+                            Country = "Spain",
+                            Description = "Description for Hotel Two",
+                            Name = "Hotel Two"
+                        });
                 });
 
             modelBuilder.Entity("TripBooking.Models.Room", b =>
@@ -103,20 +134,61 @@ namespace TripBooking.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoomId");
 
                     b.HasIndex("HotelId");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            RoomId = 1,
+                            Description = "Description for Standard Room",
+                            HotelId = 1,
+                            Name = "Standard Room",
+                            Price = 100m
+                        },
+                        new
+                        {
+                            RoomId = 2,
+                            Description = "Description for Deluxe Room",
+                            HotelId = 2,
+                            Name = "Deluxe Room",
+                            Price = 150m
+                        },
+                        new
+                        {
+                            RoomId = 3,
+                            Description = "Description for Suite",
+                            HotelId = 2,
+                            Name = "Suite",
+                            Price = 200m
+                        },
+                        new
+                        {
+                            RoomId = 4,
+                            Description = "Description for Presidential Suite",
+                            HotelId = 2,
+                            Name = "Presidential Suite",
+                            Price = 300m
+                        });
                 });
 
             modelBuilder.Entity("TripBooking.Models.Booking", b =>
@@ -130,7 +202,7 @@ namespace TripBooking.Migrations
                     b.HasOne("TripBooking.Models.Room", "Room")
                         .WithMany()
                         .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Customer");
@@ -141,12 +213,17 @@ namespace TripBooking.Migrations
             modelBuilder.Entity("TripBooking.Models.Room", b =>
                 {
                     b.HasOne("TripBooking.Models.Hotel", "Hotel")
-                        .WithMany()
+                        .WithMany("Rooms")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Hotel");
+                });
+
+            modelBuilder.Entity("TripBooking.Models.Hotel", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }

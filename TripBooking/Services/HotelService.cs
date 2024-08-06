@@ -24,7 +24,9 @@ namespace TripBooking.Services
         public Hotel GetHotelById(int id)
         {
                 
-            return _context.Hotels.FirstOrDefault(h => h.HotelId == id);
+            return _context.Hotels
+                .Include(h => h.Rooms)  //to include rooms in navigation property
+                .FirstOrDefault(h => h.HotelId == id);
         }
 
         public List<Hotel> SearchAvailableHotels(string searchTerm, DateTime checkIn, DateTime checkOut)
