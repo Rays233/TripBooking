@@ -1,4 +1,6 @@
-﻿namespace TripBooking.Models
+﻿using TripBooking.Models;
+
+namespace TripBooking.ViewModels
 {
     public class HotelInfoViewModel
     {

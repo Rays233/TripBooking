@@ -1,4 +1,4 @@
-namespace TripBooking.Models
+namespace TripBooking.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using TripBooking.Models;
+using TripBooking.ViewModels;
 using TripBooking.Services;
 
 namespace TripBooking.Controllers

@@ -5,6 +5,7 @@ using System.Configuration;
 using TripBooking.DAL;
 using Microsoft.Extensions.DependencyInjection;
 using TripBooking.Services;
+using TripBooking.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,14 +14,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IHotelService, HotelService>(); // Register HotelService as a scoped service to provide a new instance per client request.
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IBookingService, BookingService>(); // Register IBookingService
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddControllersWithViews();
 
