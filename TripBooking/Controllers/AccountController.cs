@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿    using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TripBooking.Models;
 using TripBooking.ViewModels;
@@ -9,11 +9,13 @@ namespace TripBooking.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -34,14 +36,20 @@ namespace TripBooking.Controllers
 
                 if (result.Succeeded)
                 {
+                    _logger.LogInformation("User created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
 
                 foreach (var error in result.Errors)
                 {
+                    _logger.LogError("Error creating user: {Error}", error.Description);
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+            }
+            else
+            {
+                _logger.LogWarning("Invalid model state for registration.");
             }
 
             return View(model);
@@ -64,10 +72,20 @@ namespace TripBooking.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    return LocalRedirect(returnUrl ?? Url.Action("Index", "Home"));
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                if (result.IsLockedOut)
+                {
+                    _logger.LogWarning("User account locked out.");
+                    ModelState.AddModelError(string.Empty, "Your account has been locked out. Please try again later.");
+                }
+                else
+                {
+                    _logger.LogWarning("Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                }
             }
 
             return View(model);
