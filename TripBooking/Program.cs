@@ -27,6 +27,14 @@ builder.Services.AddScoped<IBookingService, BookingService>(); // Register IBook
 
 builder.Services.AddControllersWithViews();
 
+// Add CORS service
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowWebApp",
+        policy => policy.WithOrigins("http://localhost:7295") // Replace with the URL of your React app
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
 // Configure logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -48,6 +56,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Use CORS policy
+app.UseCors("AllowWebApp");
 
 app.UseAuthorization();
 

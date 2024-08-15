@@ -261,3 +261,6 @@ C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\Microsoft.E
 C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Mason\source\repos\TripBooking\TripBooking\obj\Debug\net8.0\TripBooking.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Mason\source\repos\TripBooking\TripBooking\obj\Debug\net8.0\TripBooking.sourcelink.json
+C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\frontend\package-lock.json
+C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\frontend\package.json
+C:\Users\Mason\source\repos\TripBooking\TripBooking\bin\Debug\net8.0\frontend\public\manifest.json

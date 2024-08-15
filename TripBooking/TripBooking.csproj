@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="frontend\src\components\" />
     <Folder Include="Migrations\" />
+    <Folder Include="ClientApp\" />
   </ItemGroup>
 
 </Project>
