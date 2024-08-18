@@ -9,10 +9,12 @@ function HotelSearch() {
     const [checkOut, setCheckOut] = useState('');
     const [hotels, setHotels] = useState([]);
 
+    //function handles search operation
     const handleSearch = async (event) => {
         event.preventDefault();
 
         try {
+            //Make API call to search for hotels based on input criteria
             const response = await axios.get('/api/home/search', {
                 params: {
                     location: searchTerm,
@@ -20,6 +22,7 @@ function HotelSearch() {
                     checkOut: checkOut
                 }
             });
+            //Update the state with the search results
             setHotels(response.data);  // Update the list of hotels with the search results
         } catch (error) {
             console.error('Error searching for hotels:', error);
@@ -47,7 +50,7 @@ function HotelSearch() {
                 />
                 <button type="submit">Search</button>
             </form>
-            <HotelList hotels={hotels} />
+            {hotels.length > 0 && <HotelList hotels={hotels} />}
         </div>
     );
 }

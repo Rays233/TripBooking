@@ -5,7 +5,7 @@ namespace TripBooking.Services
 {
     public interface IBookingService
     {
-        void CreateBooking(Booking booking);
+        Booking CreateBooking(Booking booking);
         Booking GetBookingById(int id);
         List<Booking> GetAllBookings(); 
     }
@@ -18,10 +18,11 @@ namespace TripBooking.Services
             _context = context;
         }
 
-        public void CreateBooking(Booking booking)
+        public Booking CreateBooking(Booking booking)
         {
             _context.Bookings.Add(booking);
             _context.SaveChanges();
+            return booking;
         }
 
         public Booking GetBookingById(int id)

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
@@ -30,8 +30,8 @@ builder.Services.AddControllersWithViews();
 // Add CORS service
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowWebApp",
-        policy => policy.WithOrigins("http://localhost:7295") // Replace with the URL of your React app
+    options.AddPolicy("AllowAllOrigins",
+        policy => policy.WithOrigins("http://localhost:3000") 
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
@@ -58,10 +58,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 // Use CORS policy
-app.UseCors("AllowWebApp");
+app.UseCors("AllowAllApp");
 
 app.UseAuthorization();
-
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

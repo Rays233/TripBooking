@@ -4,7 +4,9 @@ using TripBooking.Services;
 
 namespace TripBooking.Controllers
 {
-    public class BookingController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
 
@@ -14,25 +16,32 @@ namespace TripBooking.Controllers
         }
 
         [HttpPost]
-        public IActionResult Reserve(int RoomId, DateTime CheckIn, DateTime CheckOut, string CustomerName, string CustomerEmail)
+        public IActionResult CreateBooking([FromBody] Booking booking)
         {
-            var booking = new Booking
+            if (booking == null)
             {
-                RoomId = RoomId,
-                CheckIn = CheckIn,
-                CheckOut = CheckOut,
-                CustomerName = CustomerName,
-                CustomerEmail = CustomerEmail
-            };
+                return BadRequest("Booking data is required.");
+            }
 
-            _bookingService.CreateBooking(booking);
+            var result = _bookingService.CreateBooking(booking);
+            if (result == null)
+            {
+                return BadRequest("Unable to create booking.");
+            }
 
-            return RedirectToAction("Confirmation");
+            return Ok(result);  // Return the created booking or relevant data
         }
 
-        public IActionResult Confirmation()
+        [HttpGet("{id}")]
+        public IActionResult GetBooking(int id)
         {
-            return View();
+            var booking = _bookingService.GetBookingById(id);
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(booking);
         }
     }
 }
