@@ -6,7 +6,9 @@ using TripBooking.Services;
 
 namespace TripBooking.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HomeController : ControllerBase
     {
         private readonly IHotelService _hotelService;
 
@@ -15,35 +17,20 @@ namespace TripBooking.Controllers
             _hotelService = hotelService;
         }
 
-        public IActionResult Index()
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] string location, [FromQuery] DateTime checkIn, [FromQuery] DateTime checkOut)
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Search(string location, DateTime checkIn, DateTime checkOut)
-        {
-            if (checkOut <= checkIn)
+            // Validate the input
+            if (string.IsNullOrEmpty(location) || checkIn == default || checkOut == default)
             {
-                ModelState.AddModelError("", "Check-out date must be after check-in date.");
-                return View("Index");
+                return BadRequest("Location, check-in, and check-out dates are required.");
             }
 
-            var availableHotels = _hotelService.SearchAvailableHotels(location, checkIn, checkOut);
-            TempData["CheckIn"] = checkIn;
-            TempData["CheckOut"] = checkOut;
-            return View("SearchResults", availableHotels);
-        }
+            // Call the service to get the list of hotels matching the criteria
+            var hotels = _hotelService.SearchAvailableHotels(location, checkIn, checkOut);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // Return the search results as JSON
+            return Ok(hotels);
         }
     }
 }

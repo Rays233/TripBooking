@@ -5,6 +5,54 @@
       "PackagePath": "staticwebassets\\TripBooking.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\asset-manifest.json",
+      "PackagePath": "staticwebassets\\build\\asset-manifest.json"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\favicon.ico",
+      "PackagePath": "staticwebassets\\build\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\index.html",
+      "PackagePath": "staticwebassets\\build\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\logo192.png",
+      "PackagePath": "staticwebassets\\build\\logo192.png"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\logo512.png",
+      "PackagePath": "staticwebassets\\build\\logo512.png"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\manifest.json",
+      "PackagePath": "staticwebassets\\build\\manifest.json"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\robots.txt",
+      "PackagePath": "staticwebassets\\build\\robots.txt"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\static\\css\\main.309271de.css",
+      "PackagePath": "staticwebassets\\build\\static\\css\\main.309271de.css"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\static\\css\\main.309271de.css.map",
+      "PackagePath": "staticwebassets\\build\\static\\css\\main.309271de.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\static\\js\\main.284128b9.js",
+      "PackagePath": "staticwebassets\\build\\static\\js\\main.284128b9.js"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\static\\js\\main.284128b9.js.LICENSE.txt",
+      "PackagePath": "staticwebassets\\build\\static\\js\\main.284128b9.js.LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\build\\static\\js\\main.284128b9.js.map",
+      "PackagePath": "staticwebassets\\build\\static\\js\\main.284128b9.js.map"
+    },
+    {
       "Id": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

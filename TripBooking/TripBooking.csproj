@@ -23,9 +23,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="frontend\src\components\" />
     <Folder Include="Migrations\" />
     <Folder Include="ClientApp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\build\favicon.ico" />
+    <None Include="wwwroot\build\index.html" />
+    <None Include="wwwroot\build\logo192.png" />
+    <None Include="wwwroot\build\logo512.png" />
+    <None Include="wwwroot\build\robots.txt" />
+    <None Include="wwwroot\build\static\css\main.309271de.css" />
+    <None Include="wwwroot\build\static\css\main.309271de.css.map" />
+    <None Include="wwwroot\build\static\js\main.284128b9.js" />
+    <None Include="wwwroot\build\static\js\main.284128b9.js.LICENSE.txt" />
+    <None Include="wwwroot\build\static\js\main.284128b9.js.map" />
   </ItemGroup>
 
 </Project>

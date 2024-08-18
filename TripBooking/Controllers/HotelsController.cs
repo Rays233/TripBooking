@@ -11,7 +11,9 @@ using TripBooking.Services;
 
 namespace TripBooking.Controllers
 {
-    public class HotelsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HotelsController : ControllerBase
     {
         private readonly IHotelService _hotelService;
 
@@ -21,26 +23,27 @@ namespace TripBooking.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(int id, DateTime checkIn, DateTime checkOut)
+        public IActionResult GetHotelDetails(int id, [FromQuery] DateTime checkIn, [FromQuery] DateTime checkOut)
         {
             var hotel = _hotelService.GetHotelById(id);
             if (hotel == null)
             {
                 return NotFound();
             }
-            if (TempData["CheckIn"] != null && TempData["CheckOut"] != null)
+            if (checkIn == default(DateTime) || checkOut == default(DateTime))
             {
-                ViewBag.CheckIn = TempData["CheckIn"];
-                ViewBag.CheckOut = TempData["CheckOut"];
-                TempData.Keep("CheckIn");
-                TempData.Keep("CheckOut");
-            }
-            else
-            {
-                // Handle the case where check-in and check-out dates are not available
                 return BadRequest("Check-in and check-out dates are required.");
             }
-            return View(hotel);
+
+            // Pass check-in and check-out dates as part of the response
+            var result = new
+            {
+                Hotel = hotel,
+                CheckIn = checkIn,
+                CheckOut = checkOut
+            };
+
+            return Ok(result);
         }
                     
     }
