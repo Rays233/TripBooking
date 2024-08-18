@@ -13,6 +13,6 @@ namespace TripBooking.Models
         public string Country { get; set; }
 
         public string Description { get; set; }
-        public List<Room> Rooms { get; set; }=new List<Room> { }; //initialises the colllection
+        public ICollection<Room> Rooms { get; set; }=new List<Room> { }; //initialises the colllection
     }
 }

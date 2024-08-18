@@ -22,7 +22,8 @@ namespace TripBooking.Services
         {
             _context.Bookings.Add(booking);
             _context.SaveChanges();
-            return booking;
+
+            return(booking);
         }
 
         public Booking GetBookingById(int id)

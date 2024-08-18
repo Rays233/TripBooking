@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Mason\\source\\repos\\TripBooking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\controllers\\hotelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\controllers\\hotelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\frontend\\src\\components\\hoteldetails.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\frontend\\src\\components\\hoteldetails.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\services\\hotelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|solutionrelative:tripbooking\\services\\hotelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C27D928-A0F3-4A30-95A1-2FB08E5756E1}|TripBooking\\TripBooking.csproj|c:\\users\\mason\\source\\repos\\tripbooking\\tripbooking\\frontend\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,26 +58,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HotelsController.cs",
-              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HotelsController.cs",
-              "RelativeDocumentMoniker": "TripBooking\\Controllers\\HotelsController.cs",
-              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Controllers\\HotelsController.cs",
-              "RelativeToolTip": "TripBooking\\Controllers\\HotelsController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAqwCoAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "HotelService.cs",
+              "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
+              "RelativeDocumentMoniker": "TripBooking\\Services\\HotelService.cs",
+              "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\Services\\HotelService.cs",
+              "RelativeToolTip": "TripBooking\\Services\\HotelService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAkwBsAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T20:51:44.384Z",
+              "WhenOpened": "2024-08-18T23:33:31.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "HotelDetails.js",
               "DocumentMoniker": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\frontend\\src\\components\\HotelDetails.js",
               "RelativeDocumentMoniker": "TripBooking\\frontend\\src\\components\\HotelDetails.js",
               "ToolTip": "C:\\Users\\Mason\\source\\repos\\TripBooking\\TripBooking\\frontend\\src\\components\\HotelDetails.js",
               "RelativeToolTip": "TripBooking\\frontend\\src\\components\\HotelDetails.js",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwAgAAAAtAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAwBAAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-08-18T20:50:40.641Z",
               "EditorCaption": ""
@@ -92,8 +92,7 @@
               "RelativeToolTip": "TripBooking\\frontend\\src\\App.js",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-18T20:48:59.019Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T20:48:59.019Z"
             },
             {
               "$type": "Document",

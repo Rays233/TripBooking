@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Mvc;
 using TripBooking.Models;
 using TripBooking.Services;
 
@@ -14,32 +15,24 @@ namespace TripBooking.Controllers
         {
             _bookingService = bookingService;
         }
-
-        [HttpPost]
-        public IActionResult CreateBooking([FromBody] Booking booking)
+        public class BookingRequest
         {
-            if (booking == null)
-            {
-                return BadRequest("Booking data is required.");
-            }
-
-            var result = _bookingService.CreateBooking(booking);
-            if (result == null)
-            {
-                return BadRequest("Unable to create booking.");
-            }
-
-            return Ok(result);  // Return the created booking or relevant data
+            public int RoomId { get; set; }
+            public string Email { get; set; }
         }
-
-        [HttpGet("{id}")]
-        public IActionResult GetBooking(int id)
+        [HttpPost]
+        public IActionResult CreateBooking([FromBody] BookingRequest request)
         {
-            var booking = _bookingService.GetBookingById(id);
-            if (booking == null)
+
+            var booking = new Booking
             {
-                return NotFound();
-            }
+                RoomId = request.RoomId,
+                CustomerEmail = request.Email,
+                CheckIn = DateTime.Now,  // Adjust according to your business logic
+                CheckOut = DateTime.Now.AddDays(1)  // Adjust according to your business logic
+            };
+
+            _bookingService.CreateBooking(booking);
 
             return Ok(booking);
         }

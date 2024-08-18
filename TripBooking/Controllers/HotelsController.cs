@@ -23,16 +23,12 @@ namespace TripBooking.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetHotelDetails(int id, [FromQuery] DateTime checkIn, [FromQuery] DateTime checkOut)
+        public IActionResult GetHotelDetails(int id)
         {
             var hotel = _hotelService.GetHotelById(id);
             if (hotel == null)
             {
                 return NotFound();
-            }
-            if (checkIn == default(DateTime) || checkOut == default(DateTime))
-            {
-                return BadRequest("Check-in and check-out dates are required.");
             }
 
             return Ok(hotel);
