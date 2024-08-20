@@ -2,7 +2,7 @@
 {
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-
+    using Newtonsoft.Json;
 
 
     public class Room
@@ -17,9 +17,10 @@
 
         [Range(1, 1000, ErrorMessage = "Price must be between $1 and $1000.")]
         public decimal Price { get; set; }
-        [Required]
+        //[Required]
+        //[JsonIgnore]
+        //public Hotel Hotel { get; set; }
 
-        public Hotel Hotel { get; set; }
     }
 
 

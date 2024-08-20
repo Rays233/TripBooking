@@ -8,10 +8,14 @@ function HotelSearch() {
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
     const [hotels, setHotels] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     //function handles search operation
     const handleSearch = async (event) => {
         event.preventDefault();
+        setLoading(true);
+        setError(null);
 
         try {
             //Make API call to search for hotels based on input criteria
@@ -23,9 +27,13 @@ function HotelSearch() {
                 }
             });
             //Update the state with the search results
+            console.log('Search response:', response.data);
             setHotels(response.data);  // Update the list of hotels with the search results
         } catch (error) {
             console.error('Error searching for hotels:', error);
+            setError('An error occurred while searching for hotels. Please try again.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -50,6 +58,8 @@ function HotelSearch() {
                 />
                 <button type="submit">Search</button>
             </form>
+            {loading && <p>Loading...</p>}
+            {error && <p>{error}</p>}
             {hotels.length > 0 && <HotelList hotels={hotels} />}
         </div>
     );

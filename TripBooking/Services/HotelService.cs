@@ -16,17 +16,31 @@ namespace TripBooking.Services
     public class HotelService : IHotelService
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<HotelService> _logger;
+    
 
-        public HotelService(AppDbContext context)
+        public HotelService(AppDbContext context, ILogger<HotelService> logger)
         {   
             _context = context;
+            _logger = logger;
         }
         public Hotel GetHotelById(int id)
         {
-                
-            return _context.Hotels
-                .Include(h => h.Rooms)  //to include rooms in navigation property
-                .FirstOrDefault(h => h.HotelId == id);
+
+            var hotel = _context.Hotels
+            .Include(h => h.Rooms)
+            .FirstOrDefault(h => h.HotelId == id);
+
+            if (hotel == null)
+            {
+                _logger.LogWarning($"Hotel with id {id} not found in database");
+            }
+            else
+            {
+                _logger.LogInformation($"Found hotel with id {id}: {hotel.Name}, Rooms: {hotel.Rooms.Count}");
+            }
+
+            return hotel;
         }
 
         public List<Hotel> SearchAvailableHotels(string searchTerm, DateTime checkIn, DateTime checkOut)
@@ -44,10 +58,14 @@ namespace TripBooking.Services
                 .Select(r => r.HotelId)
                 .Distinct()
                 .ToList();
-            return _context.Hotels
-                .Where(h => (h.City.Contains(searchTerm) || h.Country.Contains(searchTerm)) &&
-                                availableHotelIds.Contains(h.HotelId))
-                .ToList();
+
+            var hotels = _context.Hotels
+            .Where(h => (h.City.Contains(searchTerm) || h.Country.Contains(searchTerm)) &&
+                    availableHotelIds.Contains(h.HotelId))
+
+            .ToList();
+            _logger.LogInformation($"Found {hotels.Count} hotels matching search term '{searchTerm}'");
+            return hotels;
         }
         public async Task<List<Hotel>> GetAllHotelsAsync()
         {

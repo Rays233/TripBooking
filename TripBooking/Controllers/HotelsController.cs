@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using TripBooking.DAL;
 using TripBooking.Models;
 using TripBooking.Services;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
+using System.Text.Json;
 
 namespace TripBooking.Controllers
 {
@@ -16,10 +19,12 @@ namespace TripBooking.Controllers
     public class HotelsController : ControllerBase
     {
         private readonly IHotelService _hotelService;
+        private readonly ILogger<HotelsController> _logger;
 
-        public HotelsController(IHotelService hotelService)
+        public HotelsController(ILogger<HotelsController> logger, IHotelService hotelService)
         {
             _hotelService = hotelService;
+            _logger = logger ;
         }
 
         [HttpGet("{id}")]
@@ -28,9 +33,10 @@ namespace TripBooking.Controllers
             var hotel = _hotelService.GetHotelById(id);
             if (hotel == null)
             {
+                _logger.LogWarning($"Hotel with id {id} not found");
                 return NotFound();
             }
-
+            _logger.LogInformation($"Returning hotel details for id {id}: {JsonSerializer.Serialize(hotel)}");
             return Ok(hotel);
         }
                     

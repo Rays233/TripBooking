@@ -5,20 +5,28 @@ import BookingForm from './BookingForm';
 import './HotelDetails.css';
 
 function HotelDetails({ match }) {  // match is used to get the :id from the URL
-    const { id } = useParams();
     const [hotel, setHotel] = useState(null);
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(true);
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchHotelDetails = async () => {
+            console.log(`Fetching details for hotel id: ${id}`);
             try {
                 const response = await axios.get(`/api/hotels/${id}`);
                 console.log('API Response:', response.data);
-                setHotel(response.data);  // Update the state with fetched data
-                setLoading(false);
+                if (response.data && Object.keys(response.data).length > 0) {
+                    console.log('Setting hotel data:', response.data);
+                    setHotel(response.data);
+                } else {
+                    console.error('Empty or invalid hotel data received');
+                    setHotel(null);
+                }
             } catch (error) {
                 console.error('Error fetching hotel details:', error);
+                setHotel(null);
+            } finally {
                 setLoading(false);
             }
         };
@@ -43,31 +51,34 @@ function HotelDetails({ match }) {  // match is used to get the :id from the URL
         return <div>Loading...</div>;
     }
 
-    if (!hotel) {
-        return <div>No details available for this hotel.</div>;
-    }
+    //if (!hotel) {
+    //    return <div>No details available for this hotel.</div>;
+    //}
 
 
-    return (
+    return(
         <div className="hotel-details-container">
             <h2>{hotel.name}</h2>
             <p>{hotel.description}</p>
-            <ul>
-                {hotel.rooms.map(room => (
-                    <li key={room.id}>
-                        {room.type} - ${room.price} per night
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <button onClick={() => handleReservation(room.roomId)}>Reserve</button>
-                    </li>
-                ))}
-            </ul>
+            <p>City: {hotel.city}</p>
+            <p>Country: {hotel.country}</p>
+            <h3>Rooms:</h3>
+            {hotel.rooms && hotel.rooms.length > 0 ? (
+                <ul>
+                    {hotel.rooms.map(room => (
+                        <li key={room.roomId}>
+                            <strong>{room.type}</strong> - ${room.price} per night
+                            <p>{room.description}</p>
+                            <button>Reserve</button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No rooms available</p>
+            )}
         </div>
     );
+
 }
 
 export default HotelDetails;

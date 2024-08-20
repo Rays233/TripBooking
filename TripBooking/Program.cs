@@ -6,6 +6,7 @@ using TripBooking.DAL;
 using Microsoft.Extensions.DependencyInjection;
 using TripBooking.Services;
 using TripBooking.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,12 @@ builder.Services.AddCors(options =>
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
+
+//builder.Services.AddControllers().AddJsonOptions(options =>
+//{
+ //   options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+//   options.JsonSerializerOptions.PropertyNamingPolicy = null;
+//});
 // Configure logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -58,7 +65,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 // Use CORS policy
-app.UseCors("AllowAllApp");
+app.UseCors("AllowAllOrigins");
 
 app.UseAuthorization();
 app.MapControllers();

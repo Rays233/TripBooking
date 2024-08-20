@@ -39,7 +39,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Price).IsRequired();
 
-            entity.HasOne(e => e.Hotel)
+            entity.HasOne<Hotel>()
                     .WithMany(h => h.Rooms)
                     .HasForeignKey(e => e.HotelId)
                     .OnDelete(DeleteBehavior.Cascade);
