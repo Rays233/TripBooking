@@ -9,7 +9,7 @@ namespace TripBooking.Services
     public interface IHotelService
     {
         List<Hotel> SearchAvailableHotels(string location, DateTime checkIn, DateTime checkOut);
-        Hotel GetHotelById(int id);
+        Hotel GetHotelById(int hotelId);
         Task<List<Hotel>> GetAllHotelsAsync();
     }
 
@@ -24,20 +24,20 @@ namespace TripBooking.Services
             _context = context;
             _logger = logger;
         }
-        public Hotel GetHotelById(int id)
+        public Hotel GetHotelById(int hotelId)
         {
 
             var hotel = _context.Hotels
             .Include(h => h.Rooms)
-            .FirstOrDefault(h => h.HotelId == id);
+            .FirstOrDefault(h => h.HotelId == hotelId);
 
             if (hotel == null)
             {
-                _logger.LogWarning($"Hotel with id {id} not found in database");
+                _logger.LogWarning($"Hotel with id {hotelId} not found in database");
             }
             else
             {
-                _logger.LogInformation($"Found hotel with id {id}: {hotel.Name}, Rooms: {hotel.Rooms.Count}");
+                _logger.LogInformation($"Found hotel with id {hotelId}: {hotel.Name}, Rooms: {hotel.Rooms.Count}");
             }
 
             return hotel;

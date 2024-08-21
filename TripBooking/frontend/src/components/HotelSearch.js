@@ -60,7 +60,7 @@ function HotelSearch() {
             </form>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
-            {hotels.length > 0 && <HotelList hotels={hotels} />}
+            <HotelList hotels={hotels} checkIn={checkIn} checkOut={checkOut} />
         </div>
     );
 }

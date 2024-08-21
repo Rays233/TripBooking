@@ -27,16 +27,16 @@ namespace TripBooking.Controllers
             _logger = logger ;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetHotelDetails(int id)
+        [HttpGet("{hotelId}")]
+        public IActionResult GetHotelDetails(int hotelId)
         {
-            var hotel = _hotelService.GetHotelById(id);
+            var hotel = _hotelService.GetHotelById(hotelId);
             if (hotel == null)
             {
-                _logger.LogWarning($"Hotel with id {id} not found");
+                _logger.LogWarning($"Hotel with id {hotelId} not found");
                 return NotFound();
             }
-            _logger.LogInformation($"Returning hotel details for id {id}: {JsonSerializer.Serialize(hotel)}");
+            _logger.LogInformation($"Returning hotel details for id {hotelId}: {JsonSerializer.Serialize(hotel)}");
             return Ok(hotel);
         }
                     

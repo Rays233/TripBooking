@@ -2,9 +2,9 @@
 {   using System.ComponentModel.DataAnnotations;
     public class Booking
     {
-        public int BookingId { get; set; }
+        public int? BookingId { get; set; }
         [Required]
-        public int RoomId { get; set; }
+        public int? RoomId { get; set; }
         public virtual Room Room { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Check-in Date")]
@@ -20,7 +20,6 @@
         [Required]
         [EmailAddress]
         public string CustomerEmail { get; set; }
-        public int? CustomerId { get; set; } // Nullable for now
-        public virtual Customer Customer { get; set; }
+        public int? CustomerId { get; set; } // Nullable
     }
 }

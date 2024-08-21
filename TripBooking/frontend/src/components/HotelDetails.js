@@ -1,20 +1,24 @@
 ﻿import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import './HotelDetails.css';
 
-function HotelDetails({ match }) {  // match is used to get the :id from the URL
+function HotelDetails() {
+    const { hotelId } = useParams();  // Always call hooks at the top level
+    const navigate = useNavigate(); 
+    const location = useLocation();
+    const { checkIn, checkOut } = location.state;
     const [hotel, setHotel] = useState(null);
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const [selectedRoomId, setSelectedRoomId] = useState(null);
 
     useEffect(() => {
         const fetchHotelDetails = async () => {
-            console.log(`Fetching details for hotel id: ${id}`);
+            console.log(`Fetching details for hotel id: ${hotelId}`);
             try {
-                const response = await axios.get(`/api/hotels/${id}`);
+                const response = await axios.get(`/api/hotels/${hotelId}`);
                 console.log('API Response:', response.data);
                 if (response.data && Object.keys(response.data).length > 0) {
                     console.log('Setting hotel data:', response.data);
@@ -32,29 +36,28 @@ function HotelDetails({ match }) {  // match is used to get the :id from the URL
         };
 
         fetchHotelDetails();  // Call the function to fetch data
-    }, [id]);
+    }, [hotelId]);
 
-    const handleReservation = async (roomId) => {
-        try {
-            await axios.post('/api/bookings', {
-                roomId: roomId,
-                email: email,
-            });
-            alert('Room reserved successfully!');
-        } catch (error) {
-            console.error('Error reserving room:', error);
-            alert('Failed to reserve the room.');
-        }
-    };
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
-    //if (!hotel) {
-    //    return <div>No details available for this hotel.</div>;
-    //}
+    if (!hotel) {
+        return <div>No details available for this hotel.</div>;
+    }
 
+
+    const handleBookingSuccess = (data) => {
+        navigate(`/booking-confirmation/${data.BookingId}`, {
+            state: {
+                message: data.message,
+                bookingId: data.bookingId,
+                checkIn,
+                checkOut
+            }
+        });
+    };
 
     return(
         <div className="hotel-details-container">
@@ -69,12 +72,20 @@ function HotelDetails({ match }) {  // match is used to get the :id from the URL
                         <li key={room.roomId}>
                             <strong>{room.type}</strong> - ${room.price} per night
                             <p>{room.description}</p>
-                            <button>Reserve</button>
+                            <button onClick={() => setSelectedRoomId(room.roomId)}>Reserve</button>
                         </li>
                     ))}
                 </ul>
             ) : (
                 <p>No rooms available</p>
+            )}
+            {selectedRoomId && (
+                <BookingForm
+                    roomId={selectedRoomId}
+                    checkIn={checkIn}
+                    checkOut={checkOut}
+                    onBookingSuccess={handleBookingSuccess}
+                />
             )}
         </div>
     );

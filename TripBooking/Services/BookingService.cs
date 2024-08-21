@@ -5,9 +5,8 @@ namespace TripBooking.Services
 {
     public interface IBookingService
     {
-        Booking CreateBooking(Booking booking);
         Booking GetBookingById(int id);
-        List<Booking> GetAllBookings(); 
+        Booking CreateBooking(Booking booking);
     }
     public class BookingService : IBookingService
     {
@@ -22,24 +21,14 @@ namespace TripBooking.Services
         {
             _context.Bookings.Add(booking);
             _context.SaveChanges();
-
-            return(booking);
+            return booking;
         }
 
         public Booking GetBookingById(int id)
         {
             return _context.Bookings
                            .Include(b => b.Room)
-                           .Include(b=>b.Customer)
                            .FirstOrDefault(b => b.BookingId == id);
-        }
-
-        public List<Booking> GetAllBookings()
-        {
-            return _context.Bookings
-                           .Include(b => b.Room)
-                           .Include(b=>b.Customer)
-                           .ToList();
         }
     }
 

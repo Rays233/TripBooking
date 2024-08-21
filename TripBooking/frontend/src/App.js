@@ -13,7 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HotelSearch onSearch={handleSearch} />} />
                 <Route path="/hotels" element={<HotelList/>} />
-                <Route path="/hotels/:id" element={<HotelDetails/>} />
+                <Route path="/hotels/:hotelId" element={<HotelDetails />} />
             </Routes>
         </Router>
     );

@@ -10,31 +10,35 @@ namespace TripBooking.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
+        private readonly ILogger<BookingController> _logger;
 
-        public BookingController(IBookingService bookingService)
+        public BookingController(IBookingService bookingService, ILogger<BookingController> logger)
         {
             _bookingService = bookingService;
-        }
-        public class BookingRequest
-        {
-            public int RoomId { get; set; }
-            public string Email { get; set; }
+            _logger = logger;
         }
         [HttpPost]
-        public IActionResult CreateBooking([FromBody] BookingRequest request)
+        public IActionResult CreateBooking([FromBody] Booking booking)
         {
 
-            var booking = new Booking
+            if (booking == null || !ModelState.IsValid)
             {
-                RoomId = request.RoomId,
-                CustomerEmail = request.Email,
-                CheckIn = DateTime.Now,  // Adjust according to your business logic
-                CheckOut = DateTime.Now.AddDays(1)  // Adjust according to your business logic
-            };
+                _logger.LogWarning("Invalid booking data.");
+                return BadRequest("Invalid booking data.");
+            }
 
-            _bookingService.CreateBooking(booking);
+            try
+            {
+                _bookingService.CreateBooking(booking);
 
-            return Ok(booking);
+                _logger.LogInformation($"Booking created successfully for customer: {booking.CustomerEmail}");
+                return Ok(new { BookingId = booking.BookingId, Message = "Booking created successfully" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while creating the booking: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
