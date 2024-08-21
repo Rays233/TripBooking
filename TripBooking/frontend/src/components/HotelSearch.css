@@ -1,4 +1,4 @@
-﻿
+﻿/*
 .hotel-search-container {
     padding: 20px;
     background-color: #f0f0f0;
@@ -33,3 +33,116 @@
         .hotel-search-container button:hover {
             background-color: #0056b3;
         }
+    /*
+
+    body {
+    background-color: #8f4df8;
+}
+
+.main-search-input {
+    background: #fff;
+    padding: 0 120px 0 0;
+    border-radius: 1px;
+    margin-top: 200px;
+    box-shadow: 0px 0px 0px 6px rgba(255, 255, 255, 0.3);
+}
+
+.fl-wrap {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.main-search-input:before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    width: 50px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.41);
+    left: 50%;
+    margin-left: -25px;
+}
+
+.main-search-input-item {
+    float: left;
+    width: calc(33.33% - 10px); /* Adjust width for three equal columns
+margin-right: 10px;
+box-sizing: border-box;
+height: 50px;
+position: relative;
+}*/
+
+
+body {
+    background-color: #f4f4f4; /* Neutral light gray background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333; /* Dark gray for text */
+}
+
+.hotel-search-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the form container */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.main-search-input {
+    background-color: #f9f9f9; /* Light gray form background */
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for input box */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px; /* More spacing between input items */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.main-search-input-item {
+    display: flex;
+    flex-direction: column;
+}
+
+    .main-search-input-item input {
+        padding: 10px;
+        border: 1px solid #ddd; /* Light border color */
+        border-radius: 4px;
+        font-size: 16px; /* Slightly larger font for better readability */
+        background-color: #fff; /* White input background */
+        box-sizing: border-box; /* Ensures padding is included in width */
+    }
+
+.main-search-button {
+    background-color: #6c757d; /* Neutral dark gray button */
+    color: #ffffff; /* White text */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    width: 100%; /* Full width button */
+    box-sizing: border-box;
+}
+
+    .main-search-button:hover {
+        background-color: #5a6268; /* Darker shade on hover */
+    }
+
+    .main-search-button i {
+        margin-right: 8px; /* Spacing for icon */
+    }
+
+.loading,
+.error {
+    margin-top: 20px;
+    text-align: center;
+    color: #d9534f; /* Red color for error messages */
+}
+
+.hotel-list {
+    margin-top: 20px;
+}
