@@ -27,7 +27,6 @@ namespace TripBooking.Services
         public Booking GetBookingById(int id)
         {
             return _context.Bookings
-                           .Include(b => b.Room)
                            .FirstOrDefault(b => b.BookingId == id);
         }
     }

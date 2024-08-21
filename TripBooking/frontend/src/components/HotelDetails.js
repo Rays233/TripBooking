@@ -49,7 +49,8 @@ function HotelDetails() {
 
 
     const handleBookingSuccess = (data) => {
-        navigate(`/booking-confirmation/${data.BookingId}`, {
+        console.log("Booking ID from backend:", data.bookingId);
+        navigate(`/booking-confirmation/${data.bookingId}`, {
             state: {
                 message: data.message,
                 bookingId: data.bookingId,

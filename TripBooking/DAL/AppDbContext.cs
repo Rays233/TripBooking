@@ -57,11 +57,10 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             entity.HasKey(e => e.BookingId);
             entity.Property(e => e.CheckIn).IsRequired();
             entity.Property(e => e.CheckOut).IsRequired();
-            entity.Property(e => e.CustomerName).IsRequired().HasMaxLength(100);
             entity.Property(e => e.CustomerEmail).IsRequired().HasMaxLength(100);
 
 
-            entity.HasOne(e => e.Room)
+            entity.HasOne<Room>()
                   .WithMany()
                   .HasForeignKey(e => e.RoomId)
                   .OnDelete(DeleteBehavior.Restrict);

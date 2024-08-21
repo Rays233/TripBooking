@@ -5,7 +5,8 @@
         public int? BookingId { get; set; }
         [Required]
         public int? RoomId { get; set; }
-        public virtual Room Room { get; set; }
+
+        //public virtual Room Room { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Check-in Date")]
         public DateTime CheckIn { get; set; }
@@ -15,11 +16,7 @@
         [GreaterThan("CheckIn", ErrorMessage = "Check-out date must be after check-in date.")]
         public DateTime CheckOut { get; set; }
         [Required]
-
-        public string CustomerName { get; set; }
-        [Required]
         [EmailAddress]
         public string CustomerEmail { get; set; }
-        public int? CustomerId { get; set; } // Nullable
     }
 }

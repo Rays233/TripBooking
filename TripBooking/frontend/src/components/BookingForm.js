@@ -6,36 +6,37 @@ import './BookingForm.css';
 function BookingForm({ roomId, checkIn, checkOut, onBookingSuccess }) {
     const [customerEmail, setCustomerEmail] = useState('');
     const [error, setError] = useState(null);
-    const [customerName, setCustomerName] = useState('');
 
     const handleReserve = async (e) => {
         e.preventDefault();  
         setError(null);
 
-        const bookingData = {
-            Room: roomId,
-            Customer: customerEmail,
-            CustomerName: customerName,
+        try {
+            const bookingData = {
+            RoomId: roomId,
+            CustomerEmail: customerEmail,
             checkIn: new Date(checkIn).toISOString(),
             checkOut: new Date(checkOut).toISOString()
         };
 
-        console.log('Sending booking data:', bookingData);
+            console.log('Sending booking data:', bookingData);
 
-        try {
             const response = await api.post('/api/booking', bookingData);
-            console.log('Booking response:', response.data);
-            onBookingSuccess(response.data);
-            
+            console.log('Booking response:', response.data);            
 
-            if (response.status === 200) {
+            if (response.status === 200 && response.data.bookingId) {
                 onBookingSuccess({
                     bookingId: response.data.bookingId,
-                    message: response.data.message,
+                    message: response.data.Message,
                     checkIn,
                     checkOut
                 });  // Pass the booking confirmation data
             }
+
+            else {
+                console.error('Booking ID is missing in the response:', response.data);
+                setError('Booking ID is missing in the response');
+        }
         } catch (error) {
             console.error('Error creating booking:', error);
             if (error.response) {
