@@ -47,6 +47,9 @@ function HotelDetails() {
         return <div>No details available for this hotel.</div>;
     }
 
+    console.log("checkIn:", checkIn);
+    console.log("checkOut:", checkOut);
+
 
     const handleBookingSuccess = (data) => {
         console.log("Booking ID from backend:", data.bookingId);
@@ -60,7 +63,7 @@ function HotelDetails() {
         });
     };
 
-    return(
+    /*return(
         <div className="hotel-details-container">
             <h2>{hotel.name}</h2>
             <p>{hotel.description}</p>
@@ -87,6 +90,42 @@ function HotelDetails() {
                     checkOut={checkOut}
                     onBookingSuccess={handleBookingSuccess}
                 />
+            )}
+        </div>
+    );*/
+    return (
+        <div className="hotel-details-container">
+            <h2>{hotel.name}</h2>
+            <p>{hotel.description}</p>
+            <p>City: {hotel.city}</p>
+            <p>Country: {hotel.country}</p>
+            <h3>Rooms:</h3>
+            {hotel.rooms && hotel.rooms.length > 0 ? (
+                <ul>
+                    {hotel.rooms.map(room => (
+                        <li key={room.roomId}>
+                            <strong>{room.type}</strong> - ${room.price} per night
+                            <p>{room.description}</p>
+                            <div className="room-amenities">
+                                <i className="fas fa-bed"></i> {room.beds} beds
+                                <i className="fas fa-wifi"></i> Free Wi-Fi
+                            </div>
+                            <button onClick={() => setSelectedRoomId(room.roomId)}>Reserve</button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No rooms available</p>
+            )}
+            {selectedRoomId && (
+                <div className="booking-form-wrapper">
+                    <BookingForm
+                        roomId={selectedRoomId}
+                        checkIn={checkIn}
+                        checkOut={checkOut}
+                        onBookingSuccess={handleBookingSuccess}
+                    />
+                </div>
             )}
         </div>
     );

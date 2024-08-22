@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TripBooking.DAL;
 
@@ -11,9 +12,11 @@ using TripBooking.DAL;
 namespace TripBooking.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240822180611_UpdateHotelSeedData")]
+    partial class UpdateHotelSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -416,38 +419,6 @@ namespace TripBooking.Migrations
                             HotelId = 2,
                             Name = "Presidential Suite",
                             Price = 300m
-                        },
-                        new
-                        {
-                            RoomId = 5,
-                            Description = "Room with a stunning ocean view.",
-                            HotelId = 3,
-                            Name = "Beachfront Room",
-                            Price = 200m
-                        },
-                        new
-                        {
-                            RoomId = 6,
-                            Description = "Modern room with panoramic city views.",
-                            HotelId = 4,
-                            Name = "City View Room",
-                            Price = 180m
-                        },
-                        new
-                        {
-                            RoomId = 7,
-                            Description = "Luxurious suite with sea views.",
-                            HotelId = 5,
-                            Name = "Mediterranean Suite",
-                            Price = 250m
-                        },
-                        new
-                        {
-                            RoomId = 8,
-                            Description = "Comfortable room with mountain vistas.",
-                            HotelId = 6,
-                            Name = "Mountain View Room",
-                            Price = 220m
                         });
                 });
 

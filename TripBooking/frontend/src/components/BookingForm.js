@@ -11,12 +11,23 @@ function BookingForm({ roomId, checkIn, checkOut, onBookingSuccess }) {
         e.preventDefault();  
         setError(null);
 
+        console.log("checkIn:", checkIn);
+        console.log("checkOut:", checkOut);
+
+        const checkInDate = new Date(checkIn.trim());
+        const checkOutDate = new Date(checkOut.trim());
+
+        if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+            setError('Invalid check-in or check-out date. Please provide valid dates.');
+            return;
+        }
+
         try {
             const bookingData = {
             RoomId: roomId,
             CustomerEmail: customerEmail,
-            checkIn: new Date(checkIn).toISOString(),
-            checkOut: new Date(checkOut).toISOString()
+            checkIn: checkInDate.toISOString(),
+            checkOut: checkOutDate.toISOString()
         };
 
             console.log('Sending booking data:', bookingData);
@@ -51,7 +62,7 @@ function BookingForm({ roomId, checkIn, checkOut, onBookingSuccess }) {
         }
     };
 
-    return (
+    /*return (
         <form onSubmit={handleReserve}>
             <label>Email:</label>
             <input
@@ -63,7 +74,21 @@ function BookingForm({ roomId, checkIn, checkOut, onBookingSuccess }) {
             {error && <p className="error-message">{error}</p>}
             <button type="submit">Reserve</button>
         </form>
+    );*/
+    return (
+        <form onSubmit={handleReserve} className="booking-form-container">
+            <label>Email:</label>
+            <input
+                type="email"
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
+                required
+            />
+            {error && <p className="error-message">{error}</p>}
+            <button type="submit">Reserve</button>
+        </form>
     );
+
 }
 
 export default BookingForm;

@@ -7,12 +7,15 @@ function HotelResults() {
     const location = useLocation();
     const { hotels, searchTerm, checkIn, checkOut } = location.state;
 
+    console.log("checkIn:", checkIn);
+    console.log("checkOut:", checkOut);
+
     return (
         <div className="hotel-results-container">
             <h2 className="search-results-title">
                 Hotels in "{searchTerm}" from {checkIn} to {checkOut}
             </h2>
-            <HotelList hotels={hotels} />
+            <HotelList hotels={hotels} checkIn={checkIn} checkOut={checkOut} />
         </div>
     );
 }

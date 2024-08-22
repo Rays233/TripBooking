@@ -157,6 +157,9 @@ function HotelSearch() {
         } finally {
             setLoading(false);
         }
+
+        console.log("checkIn:", checkIn);
+        console.log("checkOut:", checkOut);
     };
 
     return (

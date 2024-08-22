@@ -1,4 +1,4 @@
-﻿.hotel-details-container {
+﻿/*.hotel-details-container {
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -33,4 +33,119 @@
 
             .hotel-details-container ul li:not(:last-child) {
                 margin-bottom: 15px;
+            }*/
+
+.hotel-details-container {
+    width: 100%;
+    max-width: 1200px; /* Match this width to the hotel list container */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align contents to the left */
+}
+
+    .hotel-details-container h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .hotel-details-container p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #666;
+    }
+
+    .hotel-details-container h3 {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .hotel-details-container ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .hotel-details-container ul li {
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .hotel-details-container ul li:hover {
+                background-color: #f1f1f1;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
             }
+
+.room-amenities i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.hotel-details-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left;
+}
+
+    .hotel-details-container button:hover {
+        background-color: #0056b3;
+    }
+
+.booking-form-wrapper {
+    margin-top: 30px; /* Adds space between room list and booking form */
+}
+
+.booking-form-container {
+    width: 100%; /* Take full width of the hotel-details-container */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align content to the left */
+}
+
+    .booking-form-container input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 25px; /* Space between email input and button */
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .booking-form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: left;
+    }
+
+        .booking-form-container button:hover {
+            background-color: #0056b3;
+        }
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}

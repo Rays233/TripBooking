@@ -4,8 +4,10 @@ import './HotelList.css';
 
 function HotelList({ hotels, checkIn, checkOut }) {
     if (hotels.length === 0) {
-        return <p>No hotels found for the given criteria.</p>;
+        return <p>No hotels found for the given criteria.</p>
     }
+    console.log('checkIn passed to Link:', checkIn);
+    console.log('checkOut passed to Link:', checkOut);
 
        return (
         <div className="hotel-list">
