@@ -4,6 +4,7 @@ import HotelSearch from './components/HotelSearch';
 import HotelList from './components/HotelList';
 import HotelDetails from './components/HotelDetails';
 import BookingConfirmation from './components/BookingConfirmation';
+import HotelResults from './components/HotelResults';
 
 function App() {
     const handleSearch = (searchTerm) => {
@@ -13,6 +14,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<HotelSearch onSearch={handleSearch} />} />
+                <Route path="/results" element={<HotelResults />} />
                 <Route path="/hotels" element={<HotelList/>} />
                 <Route path="/hotels/:hotelId" element={<HotelDetails />} />
                 <Route path="/booking-confirmation/:BookingId" element={<BookingConfirmation />} /> 

@@ -1,44 +1,51 @@
-﻿/* HotelList.css */
+﻿/* HotelResults.css */
 
-/* Container for the hotel list */
+/* HotelResults.css */
+
+.hotel-results-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto; /* Centers the container with spacing */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
 .hotel-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); /* Responsive grid */
-    justify-content: center; /* Center the cards in the grid */
-    gap: 20px; /* Spacing between cards */
-    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 0; /* Ensures cards are aligned within the container */
     padding: 0;
 }
 
-/* Card styling to make each hotel stand out */
 .hotel-card {
-    background-color: #ffffff; /* Ensure consistent card background */
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Card shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    box-sizing: border-box; /* Include padding and border in the card's dimensions */
-    /* Set default width and maintain aspect ratio */
+    box-sizing: border-box;
 }
 
-/* Center the card within the grid */
-.hotel-card-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.hotel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .hotel-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
 .hotel-card-content {
     display: flex;
@@ -78,11 +85,10 @@
     color: #333;
 }
 
-/* Remove underline from links and inherit styling from parent elements */
+/* Remove underline from links */
 .hotel-link {
     text-decoration: none;
     color: inherit;
     display: block;
     height: 100%;
 }
-

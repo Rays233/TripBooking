@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿/*import React, { useState } from 'react';
 import axios from 'axios';
 import HotelList from './HotelList';
 import './HotelSearch.css';
@@ -67,7 +67,7 @@ function HotelSearch() {
     );*/
 
 
-    return (
+/*    return (
         <div className="hotel-search-container">
             {!searchPerformed ? (
                 <form onSubmit={handleSearch} className="main-search-input fl-wrap">
@@ -113,5 +113,77 @@ function HotelSearch() {
     );
 }
 
+
+export default HotelSearch;*/
+
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './HotelSearch.css';
+
+function HotelSearch() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [checkIn, setCheckIn] = useState('');
+    const [checkOut, setCheckOut] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
+    const handleSearch = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        setError(null);
+
+        try {
+            const response = await axios.get('/api/home/search', {
+                params: {
+                    location: searchTerm,
+                    checkIn,
+                    checkOut,
+                },
+            });
+
+            navigate('/results', {
+                state: {
+                    hotels: response.data,
+                    searchTerm,
+                    checkIn,
+                    checkOut,
+                },
+            });
+        } catch (error) {
+            console.error('Error searching for hotels:', error);
+            setError('An error occurred while searching for hotels. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className="hotel-search-container">
+            <form onSubmit={handleSearch}>
+                <input
+                    type="text"
+                    placeholder="Search by location"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <input
+                    type="date"
+                    value={checkIn}
+                    onChange={(e) => setCheckIn(e.target.value)}
+                />
+                <input
+                    type="date"
+                    value={checkOut}
+                    onChange={(e) => setCheckOut(e.target.value)}
+                />
+                <button type="submit">Search</button>
+            </form>
+            {loading && <p>Loading...</p>}
+            {error && <p>{error}</p>}
+        </div>
+    );
+}
 
 export default HotelSearch;
